@@ -4,9 +4,11 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
-import { dot } from "node:test/reporters";
 // Route imports
 import dashboardRouter from "./routes/dashboardRoutes";
+import productRoutes from "./routes/productRoutes";
+import userRoutes from "./routes/userRoutes";
+import expenseRoutes from "./routes/expenseRoutes";
 
 // config
 dotenv.config();
@@ -21,6 +23,9 @@ app.use(cors());
 
 // Routes
 app.use("/dashboard", dashboardRouter);
+app.use("/products", productRoutes);
+app.use("/users", userRoutes);
+app.use("/expenses", expenseRoutes);
 
 // Server
 const port = process.env.PORT || 3000;
